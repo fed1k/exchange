@@ -35,9 +35,9 @@ async function fetchInitialData() {
   const data = await response.json();
 
   // Format the data to return to the component
-  
-  if (Array.isArray(data)) {
-    const initialCoinData = data.reduce((acc, coin) => {
+  // console.log("+",data)
+  // if (Array.isArray(data)) {
+    const initialCoinData = data && data.reduce((acc, coin) => {
       acc[coin.symbol.toLowerCase()] = {
         name: coin.symbol,
         price: coin.lastPrice,
@@ -45,11 +45,9 @@ async function fetchInitialData() {
       };
       return acc;
     }, {});
+
     return initialCoinData;
-  } else {
-    console.error("Expected array, got", data);
-    return {};
-  }
+  
 }
 
 const HomePage = async () => {
