@@ -32,7 +32,7 @@ async function fetchInitialData() {
   // Fetch initial prices for the coins
   console.log(url)
   const response = await fetch(`${url}`);
-  const data = await response.json();
+  const data: any[] = await response.json();
 
   // Format the data to return to the component
   // console.log("+",data)
