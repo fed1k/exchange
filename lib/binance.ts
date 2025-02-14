@@ -67,7 +67,7 @@ export async function getBinancePrices(symbols: string[]) {
     const response = await fetch(`${BINANCE_API_URL}/ticker/24hr`)
     if (!response.ok) throw new Error("Network response was not ok")
     const data = await response.json()
-    const test = data.filter((item: any) => symbols.includes(item.symbol))
+    const test: any[] = data.filter((item: any) => symbols.includes(item.symbol))
     console.log(test)
     const initialCoinData = test.reduce((acc, coin) => {
       acc[coin.symbol.toLowerCase()] = {

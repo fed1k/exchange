@@ -3,7 +3,7 @@
 import { formatPercent, formatPrice } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-export const useCoinData = (symbols = ["btcusdt"]) => {
+export const useCoinData = (symbols: any[] = ["btcusdt"]) => {
     const [coinsData, setCoinsData] = useState(
         symbols.reduce((acc, symbol) => {
             acc[symbol] = { name: symbol, price: null, priceChangePercent: null };
