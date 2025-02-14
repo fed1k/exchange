@@ -37,7 +37,7 @@ async function fetchInitialData() {
   // Format the data to return to the component
   // console.log("+",data)
   // if (Array.isArray(data)) {
-    const initialCoinData = data && data.reduce((acc, coin) => {
+    const initialCoinData = Array.from(data).reduce((acc, coin) => {
       acc[coin.symbol.toLowerCase()] = {
         name: coin.symbol,
         price: coin.lastPrice,
